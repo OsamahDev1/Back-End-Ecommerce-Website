@@ -8,6 +8,6 @@ class SignupController extends Controller
 {
     protected function ShowSignuppage()
     {
-        return view('Auth.signup');
+        return view('Auth.register');
     }
 }

@@ -21,9 +21,8 @@ use App\Http\Controllers\SuccessController;
 */
 
 Route::view('/', 'index');
-//Auth routes
-Route::get('login', [LoginController::class, 'ShowLoginpage']);
-Route::get('signup', [SignupController::class, 'ShowSignuppage']);
+//Auth route
+Auth::routes();
 
 Route::get('index', [IndexController::class, 'ShowIndexpage']);
 Route::get('cart', [CartController::class, 'showcartpage']);
