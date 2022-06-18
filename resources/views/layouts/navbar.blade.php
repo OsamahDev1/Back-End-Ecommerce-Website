@@ -13,6 +13,34 @@
     <link href="./css/index.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
+    @auth
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" href="{{ url('index') }}">Lifestyle Store</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
+                        <li><a href="{{ route('Settings') }}"><span class="glyphicon glyphicon-user"></span> Settings </a></li>
+
+                        <li><a href="{{route('logout')}}"><span class="glyphicon glyphicon-log-in" 
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        ></span> Logout </a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+            @csrf
+        </form>
+    @endauth
+    @guest
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -31,6 +59,7 @@
             </div>
         </div>
     </nav>
+    @endguest
     <div class="container">
         @yield('content')
     </div>
