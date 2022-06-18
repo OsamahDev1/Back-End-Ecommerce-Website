@@ -1,8 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SignupController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
@@ -25,7 +23,7 @@ Route::view('/', 'index');
 Auth::routes();
 
 Route::get('index', [IndexController::class, 'ShowIndexpage']);
-Route::get('cart', [CartController::class, 'showcartpage']);
-Route::get('products', [ProductController::class, 'showproductspage']);
-Route::get('Settings', [SettingController::class, 'showsettingspage']);
-Route::get('success', [SuccessController::class, 'showsuccesspage']);
+Route::get('cart', [CartController::class, 'showcartpage'])->name('cart');
+Route::get('products', [ProductController::class, 'showproductspage'])->name('products');
+Route::get('Settings', [SettingController::class, 'showsettingspage'])->name('Settings');
+Route::get('success', [SuccessController::class, 'showsuccesspage'])->name('success');

@@ -3,7 +3,7 @@
 namespace Laravel\Ui;
 
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\SignupController;
+use App\Http\Controllers\RegisterController;
 
 class AuthRouteMethods
 {
@@ -16,24 +16,24 @@ class AuthRouteMethods
     public function auth()
     {
         return function ($options = []) {
-            $namespace = class_exists($this->prependGroupNamespace('Auth\LoginController')) ? null : 'App\Http\Controllers';
+            $namespace = class_exists($this->prependGroupNamespace('LoginController')) ? null : 'App\Http\Controllers';
 
             $this->group(['namespace' => $namespace], function() use($options) {
                 // Login Routes...
                 if ($options['login'] ?? true) {
                     $this->get('login', [LoginController::class,'ShowLoginPage'])->name('login');
-                    $this->post('login', 'Auth\LoginController@login');
+                    $this->post('login', 'LoginController@login');
                 }
 
                 // Logout Routes...
                 if ($options['logout'] ?? true) {
-                    $this->post('logout', 'Auth\LoginController@logout')->name('logout');
+                    $this->post('logout', 'LoginController@logout')->name('logout');
                 }
 
                 // Registration Routes...
                 if ($options['register'] ?? true) {
-                    $this->get('register', [SignupController::class,'ShowSignuppage'])->name('register');
-                    $this->post('register', 'Auth\RegisterController@register');
+                    $this->get('register', [RegisterController::class,'ShowRegisterpage'])->name('register');
+                    $this->post('register', 'RegisterController@register');
                 }
 
                 // Password Reset Routes...

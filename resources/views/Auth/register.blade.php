@@ -5,7 +5,7 @@
                 <div class="col-xs-4"></div>
                 <div class="col-xs-4 form">
                     <h1> Sign up </h1>
-                    <form>
+                    <form action="{{ route('register') }}" method="POST">
                         @csrf
                         <div class="form-group">
                                 <input class="form-control" placeholder="Name" type="text" name="name" required="true">
