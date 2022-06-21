@@ -28,15 +28,15 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="{{ route('cart') }}"><span class="glyphicon glyphicon-shopping-cart"></span> Cart </a></li>
                         <li><a href="{{ route('Settings') }}"><span class="glyphicon glyphicon-user"></span> Settings </a></li>
-
-                        <li><a href="{{route('logout')}}"><span class="glyphicon glyphicon-log-in" 
-                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-                        ></span> Logout </a></li>
+                        
+                            
+                        <li><a onclick="document.getElementById('formLogout').submit();"><span class="glyphicon glyphicon-log-in" ></span> Logout </a></li>
+                        
                     </ul>
                 </div>
             </div>
         </nav>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST">
+        <form action="{{ route('logout') }}" method="POST" id="formLogout">
             @csrf
         </form>
     @endauth

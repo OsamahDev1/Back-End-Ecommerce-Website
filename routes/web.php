@@ -6,6 +6,8 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\SuccessController;
+// use App\Http\Controllers\LoginController;
+// use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +29,13 @@ Route::get('cart', [CartController::class, 'showcartpage'])->name('cart');
 Route::get('products', [ProductController::class, 'showproductspage'])->name('products');
 Route::get('Settings', [SettingController::class, 'showsettingspage'])->name('Settings');
 Route::get('success', [SuccessController::class, 'showsuccesspage'])->name('success');
+
+// auth routes
+// Route::get('login',[LoginController::class,'ShowLoginPage'])->name('login');
+// Route::get('register',[RegisterController::class,'ShowRegisterPage'])->name('register');
+
+// Route::get('logout', function () {
+//     auth()->logout();
+
+//     return back();
+// })->name('logoutTest');

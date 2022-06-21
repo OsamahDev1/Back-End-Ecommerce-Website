@@ -13,25 +13,26 @@ use App\Models\User;
 class RegisterController extends Controller
 {
     //register view
-    protected function ShowRegisterpage()
+    protected function ShowRegisterPage()
     {
         return view('Auth.register');
     }
     
 
+
     //register start here
     use RegistersUsers;
 
-    protected $redirectTo = RouteServiceProvider::HOME;
     //register end here
+    protected $redirectTo = RouteServiceProvider::HOME;
 
 
 
 
-    public function __construct()
-    {
-        $this->middleware('guest');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('guest');
+    // }
     
     // protected function validator(array $data)
     // {
